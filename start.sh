@@ -10,7 +10,7 @@ then
 fi
 
 test -d /data/gogs/templates || cp -ar ./templates /data/gogs/
-
+test -f /data/gogs/conf/
 ln -sf /data/gogs/log ./log
 ln -sf /data/gogs/data ./data
 ln -sf /data/git /home/git
@@ -31,4 +31,4 @@ then
 fi
 
 chown -R git:git /data .
-exec su git -c "./gogs web"
+exec su git -c "./gogs web $GOGS_PORT"
