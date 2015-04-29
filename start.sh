@@ -31,4 +31,4 @@ then
 fi
 
 chown -R git:git /data .
-exec su git -c "./gogs web $GOGS_PORT"
+exec su git -c "./gogs web -p $GOGS_PORT"
