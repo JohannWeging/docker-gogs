@@ -3,14 +3,14 @@ MAINTAINER codeskyblue@gmail.com
 
 RUN apt-get install -y openssh-server
 
-# grab but do not build gogs
+# grab but do not build 
 RUN git clone https://github.com/gogits/gogs.git /gopath/src/github.com/gogits/gogs
 
 # set the working directory and add current stuff
 WORKDIR /gopath/src/github.com/gogits/gogs
-RUN git checkout master
-RUN go get -v -tags sqlite
-RUN go build -tags sqlite
+RUN git checkout v0.6.1
+RUN go get -v
+RUN go build 
 
 RUN useradd --shell /bin/bash --system --comment gogits git
 
